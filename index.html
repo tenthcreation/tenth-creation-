@@ -230,6 +230,50 @@ section{scroll-margin-top:24px}
   clip-path: polygon(0 0, 100% 50%, 0 100%);
   pointer-events: none;
 }
+
+/* Preserve the complete source image instead of cropping to viewport height. */
+.work-cover{display:block;min-height:0;height:auto;overflow:visible}
+.work-cover > img{position:relative;inset:auto;z-index:0;width:100%;height:auto;object-fit:contain;transform:none;transition:none}
+.work-cover:hover > img{transform:none}
+.work-cover::after{z-index:1}
+.work-cover-copy{position:absolute;inset:0;z-index:2;padding:32px 24px 64px;pointer-events:none}
+.work-caption{position:absolute;z-index:2;left:0;right:0;bottom:0}
+.detail-hero{padding-top:72px}
+.detail-hero > img{position:relative;inset:auto;z-index:0;width:100%;height:auto;object-fit:contain}
+.detail-hero::after{z-index:1;pointer-events:none}
+.detail-copy{position:absolute;inset:72px 0 0;z-index:2;min-height:0;padding:32px var(--gutter);pointer-events:none}
+.detail-back{z-index:4}
+
+/* Give the clients their own full-width panel, with readable brand names. */
+.about{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px)}
+.about-photo{min-height:0;max-height:none;aspect-ratio:auto;align-self:start}
+.about-photo img{position:static;width:100%;height:auto;object-fit:contain}
+.about-copy{padding:0 0 12px}
+.about-copy h2{max-width:650px;font-size:clamp(38px,4.8vw,72px)}
+.client-panel{grid-column:1/-1;min-height:0;padding:clamp(28px,4vw,64px)}
+.client-panel h3{margin:0 0 clamp(28px,4vw,48px);font-size:clamp(32px,4.5vw,60px);line-height:1;letter-spacing:-.04em}
+.client-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 clamp(20px,3vw,48px);columns:auto;margin:0;padding:0;list-style:none;font-size:clamp(18px,1.7vw,27px);font-weight:500;line-height:1.4;letter-spacing:-.02em;overflow-wrap:normal}
+.client-list li{min-width:0;display:flex;align-items:center;min-height:80px;padding:18px 0;border-top:1px solid rgba(255,255,255,.2);overflow-wrap:break-word}
+.client-panel footer{margin-top:clamp(32px,4vw,56px);padding-top:22px;border-top:1px solid rgba(255,255,255,.25);font-size:12px;line-height:1.6;opacity:.78}
+@media(max-width:1100px){.client-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+  /* Keep text below the picture on phones so it cannot cover a face. */
+  .work-cover{min-height:0;background:#171717}
+  .work-cover::after{display:none}
+  .work-cover-copy{position:relative;inset:auto;padding:26px 18px 20px;gap:10px}
+  .work-cover-copy h3{font-size:clamp(30px,8vw,56px);line-height:1.08}
+  .work-caption{position:relative;inset:auto;padding:0 18px 22px}
+  .detail-hero{padding-top:132px}
+  .detail-hero::after{display:none}
+  .detail-copy{position:relative;inset:auto;min-height:0;padding:32px var(--gutter);gap:14px}
+  .detail-copy h1{font-size:clamp(34px,9vw,64px)}
+  .about{grid-template-columns:1fr;gap:40px}
+  .about-copy h2{font-size:clamp(36px,9vw,62px)}
+  .client-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px;font-size:clamp(16px,3.6vw,22px)}
+  .client-list li{min-height:72px;padding:16px 0}
+  .client-panel footer{font-size:11px}
+}
+@media(max-width:360px){.client-list{grid-template-columns:1fr}.client-list li{min-height:58px}}
 </style>
 </head>
 <body>
@@ -299,7 +343,7 @@ section{scroll-margin-top:24px}
   </div>
 
   <a class="work-cover fashion-cover reveal" href="?work=fashion">
-    <img src="fashion-cover.jpg" alt="Fashion">
+    <img src="fashion-cover.jpg" width="2200" height="1240" alt="Fashion">
     <div class="work-cover-copy">
       <span>Tenth Creation</span>
       <h3>Fashion</h3>
@@ -312,7 +356,7 @@ section{scroll-margin-top:24px}
   </a>
 
   <a class="work-cover reveal" href="?work=beauty">
-    <img src="beauty-cover.jpg" alt="Beauty and Hair">
+    <img src="beauty.jpg" width="5616" height="3656" alt="Beauty and Hair">
     <div class="work-cover-copy">
       <span>Tenth Creation</span>
       <h3>Beauty / Hair</h3>
@@ -325,7 +369,7 @@ section{scroll-margin-top:24px}
   </a>
 
   <a class="work-cover lifestyle-cover reveal" href="?work=lifestyle">
-    <img src="lifestyle-cover.jpg" alt="Lifestyle">
+    <img src="lifestyle-cover.jpg" width="2200" height="1241" alt="Lifestyle">
     <div class="work-cover-copy">
       <span>Tenth Creation</span>
       <h3>Lifestyle</h3>
@@ -467,7 +511,7 @@ section{scroll-margin-top:24px}
 
 <section class="about paper" id="about">
   <div class="about-photo reveal">
-    <img src="about-studio.jpg" alt="Tenth Creation studio">
+    <img src="about-studio.jpg" width="853" height="1158" alt="Tenth Creation studio">
   </div>
 
   <div class="about-copy reveal">
@@ -483,28 +527,28 @@ section{scroll-margin-top:24px}
 
   <div class="client-panel reveal">
     <h3>Clients</h3>
-    <div class="client-list">
-      Samsung<br>
-      Chanel<br>
-      Samsung Galaxy S4<br>
-      CJ E&amp;M<br>
-      HSBC<br>
-      OnStyle<br>
-      Caffè Bene<br>
-      VFILES<br>
-      J.Estina<br>
-      Outre<br>
-      Belif<br>
-      Toyokalon<br>
-      Didier Dubot Paris<br>
-      Style Studio<br>
-      Southpole<br>
-      Plac Jeans<br>
-      Denka<br>
-      The Korea Society<br>
-      Kaneka<br>
-      KFDA
-    </div>
+    <ul class="client-list" aria-label="Clients">
+      <li>Samsung</li>
+      <li>Chanel</li>
+      <li>Samsung Galaxy S4</li>
+      <li>CJ E&amp;M</li>
+      <li>HSBC</li>
+      <li>OnStyle</li>
+      <li>Caffè Bene</li>
+      <li>VFILES</li>
+      <li>J.Estina</li>
+      <li>Outre</li>
+      <li>Belif</li>
+      <li>Toyokalon</li>
+      <li>Didier Dubot Paris</li>
+      <li>Style Studio</li>
+      <li>Southpole</li>
+      <li>Plac Jeans</li>
+      <li>Denka</li>
+      <li>The Korea Society</li>
+      <li>Kaneka</li>
+      <li>KFDA</li>
+    </ul>
     <footer>
       <span>Creative Direction / Jun Lee</span>
       <span>Instagram / @tenthcreation</span>
@@ -680,30 +724,44 @@ if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: re
 const projects = {
   beauty:{
     title:"Beauty / Hair",
-    cover:"beauty-cover.jpg",
+    cover:"beauty.jpg",
+    coverWidth:5616,
+    coverHeight:3656,
     description:"Beauty and hair imagery developed through studio lighting, styling, texture and editorial direction.",
     images:[
       "beauty-01.jpg",
       "beauty-02.jpg",
-      "beauty-03.jpg",
-      "beauty-04.jpg"
+      "beauty4.jpg",
+      "beauty-04.jpg",
+      "beauty2.jpg",
+      "beauty3.jpg",
+      "beauty5.png",
+      "beauty6.png",
+      "beauty7.png",
+      "beauty8.png"
     ]
   },
   fashion:{
     title:"Fashion",
     cover:"fashion-cover.jpg",
+    coverWidth:2200,
+    coverHeight:1240,
     description:"Fashion and editorial photography shaped through styling, lighting and creative direction from concept through post-production.",
     images:[
       "fashion-01.jpg",
       "fashion-02.jpg",
       "fashion-03.jpg",
       "fashion-04.jpg",
-      "fashion-05.jpg"
+      "fashion-05.jpg",
+      "fashion2.jpg",
+      "fashion3.jpg"
     ]
   },
   lifestyle:{
     title:"Lifestyle",
     cover:"lifestyle-cover.jpg",
+    coverWidth:2200,
+    coverHeight:1241,
     description:"Lifestyle and portrait photography captured in an elevated, natural way, with an emphasis on authentic settings and visual tone.",
     images:[
       "lifestyle-01.jpg",
@@ -711,9 +769,114 @@ const projects = {
       "lifestyle-03.jpg",
       "lifestyle-04.jpg",
       "lifestyle-05.jpg",
-      "lifestyle-06.jpg"
+      "lifestyle-06.jpg",
+      "lifestyle.jpg",
+      "lifestyle2.jpg"
     ]
   }
+};
+
+const galleryImageSizes = {
+  "beauty-01.jpg": [
+    544,
+    725
+  ],
+  "beauty-02.jpg": [
+    549,
+    721
+  ],
+  "beauty4.jpg": [
+    1168,
+    1752
+  ],
+  "beauty-04.jpg": [
+    1168,
+    1600
+  ],
+  "beauty2.jpg": [
+    899,
+    1348
+  ],
+  "beauty3.jpg": [
+    1752,
+    1168
+  ],
+  "beauty5.png": [
+    1023,
+    1537
+  ],
+  "beauty6.png": [
+    2065,
+    1121
+  ],
+  "beauty7.png": [
+    958,
+    591
+  ],
+  "beauty8.png": [
+    958,
+    594
+  ],
+  "fashion-01.jpg": [
+    1468,
+    1829
+  ],
+  "fashion-02.jpg": [
+    691,
+    860
+  ],
+  "fashion-03.jpg": [
+    800,
+    1033
+  ],
+  "fashion-04.jpg": [
+    544,
+    725
+  ],
+  "fashion-05.jpg": [
+    1168,
+    1234
+  ],
+  "fashion2.jpg": [
+    1752,
+    1168
+  ],
+  "fashion3.jpg": [
+    3504,
+    2336
+  ],
+  "lifestyle-01.jpg": [
+    853,
+    905
+  ],
+  "lifestyle-02.jpg": [
+    492,
+    516
+  ],
+  "lifestyle-03.jpg": [
+    852,
+    905
+  ],
+  "lifestyle-04.jpg": [
+    857,
+    900
+  ],
+  "lifestyle-05.jpg": [
+    1113,
+    811
+  ],
+  "lifestyle-06.jpg": [
+    797,
+    1146
+  ],
+  "lifestyle.jpg": [
+    2336,
+    3504
+  ],
+  "lifestyle2.jpg": [
+    2336,
+    3504
+  ]
 };
 
 const key = new URLSearchParams(location.search).get("work");
@@ -721,6 +884,8 @@ const key = new URLSearchParams(location.search).get("work");
 if(Object.prototype.hasOwnProperty.call(projects, key)){
   const p = projects[key];
   document.title = `${p.title} — Tenth Creation`;
+  document.getElementById("detail-cover").width = p.coverWidth;
+  document.getElementById("detail-cover").height = p.coverHeight;
   document.getElementById("detail-cover").src = p.cover;
   document.getElementById("detail-cover").alt = p.title;
   document.getElementById("detail-title").textContent = p.title;
@@ -729,7 +894,7 @@ if(Object.prototype.hasOwnProperty.call(projects, key)){
   document.getElementById("detail-grid").innerHTML =
     p.images.map((src,i)=>`
       <figure>
-        <img src="${src}" alt="${p.title} ${i+1}" loading="lazy">
+        <img src="${src}" width="${galleryImageSizes[src][0]}" height="${galleryImageSizes[src][1]}" alt="${p.title} ${i+1}" loading="lazy" decoding="async">
         <figcaption>
           <span>${String(i+1).padStart(2,"0")}</span>
           <span>Tenth Creation</span>
