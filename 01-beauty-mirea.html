@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+
+<title>Mirea Skin — Concept 01</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Italiana&display=swap');
+*{box-sizing:border-box} html,body{margin:0;min-height:100%;background:#eee8df;color:#221d19}
+body{font-family:'DM Sans',Arial,sans-serif} a{color:inherit;text-decoration:none}
+.page{min-height:100vh;padding:20px;display:grid;grid-template-rows:auto 1fr auto;gap:18px}
+nav{height:58px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(34,29,25,.2);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.logo{font-family:'Italiana',serif;font-size:24px;letter-spacing:.02em}
+.links{display:flex;gap:28px} .book{border:1px solid #221d19;border-radius:999px;padding:10px 16px}
+.hero{display:grid;grid-template-columns:.92fr 1.08fr;gap:18px;min-height:730px}
+.copy{display:flex;flex-direction:column;justify-content:space-between;padding:38px 18px 12px 0}
+.eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.eyebrow:before{content:"";width:30px;height:1px;background:#221d19}
+h1{font-family:'Italiana',serif;font-weight:400;font-size:clamp(78px,9vw,148px);line-height:.8;letter-spacing:-.055em;margin:0}
+h1 i{font-weight:400;color:#b36f57}
+.lead{max-width:470px;font-size:16px;line-height:1.6;color:#5f554f}
+.actions{display:flex;gap:10px;margin-top:24px} .btn{padding:13px 18px;border-radius:999px;border:1px solid #221d19;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.btn.fill{background:#221d19;color:#fff}
+.visual{position:relative;border-radius:28px;overflow:hidden;background:#cbb4a2}
+.visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.72) contrast(.93)}
+.visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(34,29,25,.22))}
+.vertical{position:absolute;right:18px;top:24px;writing-mode:vertical-rl;z-index:2;color:white;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.card{position:absolute;left:24px;bottom:24px;z-index:3;background:rgba(244,239,232,.92);backdrop-filter:blur(12px);width:270px;padding:18px;border-radius:18px}
+.card small{text-transform:uppercase;letter-spacing:.12em;font-size:10px} .card strong{display:block;font-family:'Italiana';font-size:30px;margin:8px 0}
+.card p{font-size:12px;line-height:1.5;margin:0;color:#625852}
+.strip{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid rgba(34,29,25,.2)}
+.strip div{padding:18px 0;font-size:11px;text-transform:uppercase;letter-spacing:.1em} .strip div:nth-child(2){text-align:center} .strip div:last-child{text-align:right}
+@media(max-width:850px){.links{display:none}.hero{grid-template-columns:1fr}.copy{min-height:570px}.visual{min-height:620px}h1{font-size:21vw}}
+</style>
+</head>
+<body>
+<div class="page">
+<nav>
+  <a class="logo">MIREA SKIN</a>
+  <div class="links"><a>Treatments</a><a>About</a><a>Journal</a><a>Locations</a></div>
+  <a class="book">Book a treatment ↗</a>
+</nav>
+<main class="hero">
+  <section class="copy">
+    <div class="eyebrow">Clinical care, considered beautifully</div>
+    <div>
+      <h1>Skin,<br><i>refined.</i></h1>
+      <p class="lead">Personalized facial treatments that combine clinical expertise with a quieter, more considered approach to skin health.</p>
+      <div class="actions"><a class="btn fill">Explore treatments</a><a class="btn">Our approach</a></div>
+    </div>
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:.11em">New York · Jersey City · By appointment</div>
+  </section>
+  <section class="visual">
+    <img src="https://images.pexels.com/photos/8534696/pexels-photo-8534696.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="">
+    <div class="vertical">01 — Signature facial</div>
+    <div class="card"><small>Featured treatment</small><strong>The Reset Facial</strong><p>Barrier-focused care designed to restore balance, clarity, and visible calm.</p></div>
+  </section>
+</main>
+<div class="strip"><div>Dermal treatments / Facials / Skin plans</div><div>Thoughtful results. No excess.</div><div>Scroll to discover ↓</div></div>
+</div>
+</body></html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+
+<title>Northline Golf — Concept 02</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap');
+*{box-sizing:border-box}html,body{margin:0;background:#0b160f;color:#f6f3e8;font-family:'DM Sans',sans-serif}
+a{color:inherit;text-decoration:none}
+.hero{min-height:100vh;position:relative;overflow:hidden;background:#15271a}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.78) brightness(.48)}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,11,7,.72) 0%,rgba(4,11,7,.16) 63%,rgba(4,11,7,.34) 100%)}
+nav{position:relative;z-index:3;height:84px;padding:0 34px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.19);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+.logo{font-family:'Instrument Serif';font-size:29px;text-transform:none;letter-spacing:0}
+.links{display:flex;gap:30px}.reserve{background:#d8d190;color:#111c13;border-radius:999px;padding:12px 18px;font-weight:700}
+.content{position:relative;z-index:2;min-height:calc(100vh - 84px);padding:60px 34px 30px;display:grid;grid-template-rows:1fr auto}
+.top{display:flex;align-items:flex-end}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;margin-bottom:22px}
+h1{font-size:clamp(82px,11vw,175px);line-height:.76;letter-spacing:-.075em;text-transform:uppercase;margin:0;max-width:1150px}
+h1 em{font-family:'Instrument Serif';font-weight:400;text-transform:none;letter-spacing:-.03em;color:#d8d190}
+.bottom{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:end}
+.intro{max-width:570px;font-size:17px;line-height:1.55;color:#d5d7d0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(255,255,255,.24);border-radius:18px;overflow:hidden;backdrop-filter:blur(12px);background:rgba(8,18,11,.34)}
+.stat{padding:20px;border-right:1px solid rgba(255,255,255,.2)}.stat:last-child{border-right:0}
+.stat strong{font-family:'Instrument Serif';font-size:34px;font-weight:400;display:block}.stat span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#bcc3b8}
+.booking{position:absolute;right:34px;top:116px;z-index:4;background:#f3efe4;color:#111c13;border-radius:18px;width:290px;padding:20px}
+.booking small{text-transform:uppercase;letter-spacing:.13em;font-size:10px}.booking h3{font-family:'Instrument Serif';font-size:33px;font-weight:400;margin:10px 0 20px}
+.row{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(17,28,19,.16);font-size:12px}.go{margin-top:14px;background:#15271a;color:white;padding:13px;border-radius:999px;text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+@media(max-width:900px){.links{display:none}.booking{display:none}.bottom{grid-template-columns:1fr}.stats{margin-top:20px}h1{font-size:18vw}}
+</style></head>
+<body>
+<section class="hero">
+<img class="bg" src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=2200&q=85" alt="">
+<div class="shade"></div>
+<nav><a class="logo">Northline Golf</a><div class="links"><a>The Course</a><a>Membership</a><a>Events</a><a>Clubhouse</a></div><a class="reserve">Reserve a tee time ↗</a></nav>
+<div class="booking"><small>Next available</small><h3>Find your tee time.</h3><div class="row"><span>Date</span><b>Sep 12</b></div><div class="row"><span>Players</span><b>2</b></div><div class="row"><span>Time</span><b>4:20 PM</b></div><div class="go">Check availability</div></div>
+<div class="content">
+  <div class="top"><div><div class="kicker">Private golf · Modern hospitality</div><h1>Play the<br><em>long game.</em></h1></div></div>
+  <div class="bottom">
+    <p class="intro">A considered golf experience built around excellent play, thoughtful hospitality, and more time where you want to be — on the course.</p>
+    <div class="stats"><div class="stat"><strong>18</strong><span>Championship holes</span></div><div class="stat"><strong>72</strong><span>Course par</span></div><div class="stat"><strong>6,940</strong><span>Total yards</span></div></div>
+  </div>
+</div>
+</section>
+</body></html>

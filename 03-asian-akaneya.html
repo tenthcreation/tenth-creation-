@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Akariya Sumibi — Japanese Concept</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#090909;
+  --bg-soft:#101010;
+  --warm:#1a110d;
+  --cream:#e9dfd2;
+  --muted:#a79a8b;
+  --line:rgba(255,255,255,.08);
+  --glass:rgba(255,255,255,.72);
+  --glass-soft:rgba(255,255,255,.58);
+  --accent:#6d2f18;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,sans-serif}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+body{
+  background:
+    radial-gradient(circle at 18% 8%, rgba(120,54,24,.10), transparent 24%),
+    radial-gradient(circle at 92% 26%, rgba(255,255,255,.03), transparent 18%),
+    #070707;
+}
+
+/* hero */
+.hero{
+  position:relative;
+  min-height:100vh;
+  overflow:hidden;
+  background:#100a08;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  filter:brightness(.34) saturate(.75) contrast(1.04);
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(6,6,6,.14), rgba(6,6,6,.22) 42%, rgba(6,6,6,.62)),
+    linear-gradient(90deg, rgba(10,8,8,.30), rgba(10,8,8,.05) 38%, rgba(10,8,8,.36));
+}
+nav{
+  position:absolute;left:0;right:0;top:0;z-index:5;
+  padding:28px 42px;
+  display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  font-family:'Shippori Mincho',serif;
+  font-size:12px;
+  color:rgba(255,255,255,.86);
+}
+nav .left, nav .right{display:flex;gap:26px;align-items:center}
+nav .right{justify-content:flex-end}
+nav .brand{font-size:36px;letter-spacing:-.04em;text-align:center}
+nav .langs{display:flex;gap:8px;align-items:center}
+nav .langs span{opacity:.78}
+nav .menu-mark{width:44px;height:16px;position:relative;display:inline-block;margin-right:14px}
+nav .menu-mark::before, nav .menu-mark::after{content:"";position:absolute;left:0;right:0;height:1px;background:rgba(255,255,255,.72)}
+nav .menu-mark::before{top:3px}
+nav .menu-mark::after{bottom:3px}
+
+.hero-content{
+  position:relative;z-index:4;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  padding:120px 24px 96px;
+}
+.hero-inner{max-width:980px;display:flex;flex-direction:column;align-items:center}
+.vertical-kanji{
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  font-family:'Shippori Mincho',serif;
+  font-size:88px;
+  line-height:.88;
+  letter-spacing:.02em;
+  color:rgba(255,255,255,.78);
+  text-shadow:0 0 18px rgba(0,0,0,.26);
+  margin-bottom:28px;
+}
+.hero-copy{
+  font-family:'Shippori Mincho',serif;
+  font-size:17px;
+  line-height:1.75;
+  color:rgba(255,255,255,.80);
+  max-width:560px;
+}
+.hero-copy strong{
+  display:block;
+  margin-bottom:12px;
+  font-size:18px;
+  font-weight:500;
+  color:rgba(255,255,255,.87);
+}
+.hero-title{
+  margin-top:10px;
+  font-family:'Shippori Mincho',serif;
+  font-size:18px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.52);
+}
+
+/* section common */
+.section{padding:56px 5.2vw}
+.kicker{
+  font-size:10px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:rgba(233,223,210,.54);
+  margin-bottom:16px;
+}
+
+/* intro editorial */
+.intro{
+  background:#050505;
+  border-top:1px solid var(--line);
+}
+.intro-grid{
+  max-width:1380px;margin:auto;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;
+}
+.intro-copy{padding:28px 0 0}
+.intro-copy h2{
+  margin:0 0 24px;
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(42px,4.4vw,76px);
+  line-height:1.06;
+  font-weight:500;
+  color:rgba(255,255,255,.86);
+}
+.intro-copy p{
+  max-width:460px;
+  margin:0;
+  color:rgba(255,255,255,.52);
+  font-size:14px;
+  line-height:1.9;
+}
+.intro-images{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:12px;min-height:420px;
+}
+.intro-images .tall{grid-row:1 / span 2;min-height:420px}
+.intro-images .small{height:204px}
+.intro-images img{filter:brightness(.74) saturate(.82)}
+
+/* story mosaic */
+.story{
+  background:#090909;
+}
+.story-grid{
+  max-width:1380px;margin:auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;
+}
+.story-copy h3{
+  margin:0 0 20px;
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(34px,3.4vw,56px);
+  line-height:1.14;
+  font-weight:500;
+  color:rgba(255,255,255,.82);
+}
+.story-copy p{
+  margin:0;
+  max-width:470px;
+  font-size:14px;
+  line-height:1.9;
+  color:rgba(255,255,255,.50);
+}
+.mosaic{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+}
+.mosaic .wide{grid-column:span 2}
+.mosaic .tall{grid-row:span 2;min-height:332px}
+.mosaic .box{min-height:160px;background:#111;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.mosaic img{filter:brightness(.8) saturate(.88)}
+.menu-box{
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.75);
+  font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+  background:#080808;
+}
+
+/* tasting strip */
+.tasting{
+  background:linear-gradient(180deg, #0b0b0b, #060606);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.tasting-inner{
+  max-width:1380px;margin:auto;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;
+}
+.tasting-copy h3{
+  margin:0 0 18px;
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(34px,3.5vw,58px);
+  line-height:1.12;
+  font-weight:500;
+  color:rgba(255,255,255,.82);
+}
+.tasting-copy p{margin:0;color:rgba(255,255,255,.50);font-size:14px;line-height:1.9;max-width:460px}
+.tasting-image{min-height:370px}
+.tasting-image img{filter:brightness(.70) saturate(.85)}
+
+/* footer style strip */
+.ending{
+  background:#070707;
+}
+.ending-grid{
+  max-width:1380px;margin:auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.ending-card{
+  min-height:168px;
+  border-top:1px solid rgba(255,255,255,.10);
+  padding:22px 0 0;
+}
+.ending-card h4{
+  margin:0 0 12px;
+  font-family:'Shippori Mincho',serif;
+  font-size:26px;
+  font-weight:500;
+  color:rgba(255,255,255,.82);
+}
+.ending-card p{
+  margin:0;
+  font-size:14px;
+  line-height:1.8;
+  color:rgba(255,255,255,.48);
+  max-width:360px;
+}
+
+@media (max-width:960px){
+  nav{grid-template-columns:1fr auto;gap:16px}
+  nav .left{display:none}
+  nav .right{gap:18px}
+  .intro-grid,.story-grid,.tasting-inner,.ending-grid{grid-template-columns:1fr}
+  .intro-images,.mosaic{grid-template-columns:1fr 1fr}
+  .intro-images .tall{grid-row:auto;min-height:260px}
+  .mosaic .tall{grid-row:auto;min-height:240px}
+  .tasting-image{min-height:280px}
+  .vertical-kanji{font-size:68px}
+}
+</style>
+</head>
+<body>
+<section class="hero">
+  <img class="hero-bg" src="https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=2000" alt="Japanese charcoal grill atmosphere">
+  <nav>
+    <div class="left">
+      <span class="menu-mark"></span>
+      <div class="langs"><span>ES</span><span>|</span><span>JP</span><span>|</span><span>EN</span><span>|</span><span>FR</span><span>|</span><span>CAT</span></div>
+    </div>
+    <div class="brand">AKANEYA</div>
+    <div class="right"><a href="#">Reservations</a><a href="#">Gift</a></div>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="vertical-kanji">炭火焼</div>
+      <div class="hero-copy">
+        <strong>Fire, tradition, and the most exclusive wagyū transport us to a small sumibiyaki in Kyoto.</strong>
+        A darker, quieter Japanese dining concept shaped around charcoal, ceremony, and a slower sense of luxury.
+      </div>
+      <div class="hero-title">Akariya Sumibi</div>
+    </div>
+  </div>
+</section>
+
+<section class="section intro">
+  <div class="intro-grid">
+    <div class="intro-copy">
+      <div class="kicker">Craft & Atmosphere</div>
+      <h2>Authentic place, where tradition meets innovation in the heart of culinary fire.</h2>
+      <p>Inspired by the references you sent, this version leans further into a black, editorial layout with quieter type, more negative space, and softer text opacity. The site feels more premium, more atmospheric, and closer to a luxury Asian restaurant rather than a generic template.</p>
+    </div>
+    <div class="intro-images">
+      <div class="tall"><img src="https://images.pexels.com/photos/8951199/pexels-photo-8951199.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Japanese dish"></div>
+      <div class="small"><img src="https://images.pexels.com/photos/357756/pexels-photo-357756.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Chef plating"></div>
+      <div class="small"><img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Noodles and chopsticks"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section story">
+  <div class="story-grid">
+    <div class="story-copy">
+      <div class="kicker">Ingredients & Ritual</div>
+      <h3>We buy our products only from trusted suppliers to guarantee the highest quality of every dish.</h3>
+      <p>The composition here is intentionally more graphic and editorial: black background, softened serif type, carefully cropped food photography, and modular image blocks that echo the second reference image you attached. It should feel elevated, sparse, and image-led.</p>
+    </div>
+    <div class="mosaic">
+      <div class="box tall"><img src="akaneya-counter-chef.jpeg" alt="Luxury Japanese counter dining interior"></div>
+      <div class="box"><img src="https://images.pexels.com/photos/884596/pexels-photo-884596.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Asian dish"></div>
+      <div class="box"><img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Plated course"></div>
+      <div class="box wide"><img src="https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Noodle dish"></div>
+      <div class="box menu-box">View Menu</div>
+    </div>
+  </div>
+</section>
+
+<section class="section tasting">
+  <div class="tasting-inner">
+    <div class="tasting-copy">
+      <div class="kicker">Chef's Selection</div>
+      <h3>Our eatery provides an array of quality ingredients, crafting a diverse range of flavoured dishes.</h3>
+      <p>Focused menus, intimate counter dining, and premium seasonal sourcing come together in a dining direction that feels both Asian and luxurious — quiet rather than flashy, and rich in mood instead of crowding the screen.</p>
+    </div>
+    <div class="tasting-image"><img src="https://images.pexels.com/photos/684965/pexels-photo-684965.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Modern plated dish"></div>
+  </div>
+</section>
+
+<section class="section ending">
+  <div class="ending-grid">
+    <div class="ending-card"><h4>Counter dining</h4><p>Quiet seating designed around the chef, the fire, and a more personal dining ritual.</p></div>
+    <div class="ending-card"><h4>Wagyū & grill</h4><p>Rare cuts, seasonal seafood, and focused plates delivered with restraint and care.</p></div>
+    <div class="ending-card"><h4>Reservations</h4><p>A booking-led flow intended for premium dinners, intimate occasions, and gifting.</p></div>
+  </div>
+</section>
+</body>
+</html>

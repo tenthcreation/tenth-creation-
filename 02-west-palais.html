@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Palais Noir — Fine Dining Concept</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+:root{
+  --bg:#0f0c0b;
+  --ink:#181413;
+  --forest:#10251f;
+  --forest-2:#18352d;
+  --wine:#3d0d17;
+  --gold:#d9c29f;
+  --cream:#f2eee8;
+  --cream-2:#e7dfd4;
+  --muted:#746960;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--cream);font-family:Inter,sans-serif}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+.hero{position:relative;min-height:92vh;overflow:hidden;background:#0d0a09}
+.hero img.bg{position:absolute;inset:0;filter:brightness(.38) saturate(.78) contrast(1.03)}
+.hero:after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(8,7,6,.15),rgba(8,7,6,.28) 45%,rgba(8,7,6,.68)),
+  linear-gradient(90deg,rgba(8,7,6,.50),rgba(8,7,6,.10) 42%,rgba(8,7,6,.42) 100%)}
+.nav{position:relative;z-index:3;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:34px;padding:26px 4.5vw;font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+.nav .call{white-space:nowrap}
+.nav .mid{display:flex;justify-content:center;gap:34px;flex-wrap:wrap}
+.nav .book{padding:16px 26px;background:#d8c09b;color:#13241f;font-weight:600}
+.hero-copy{position:relative;z-index:3;min-height:calc(92vh - 78px);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 90px}
+.hero-inner{max-width:980px}
+.hero h1{margin:0;font-family:'Cormorant Garamond',serif;font-size:clamp(84px,10vw,160px);line-height:.82;font-weight:500;letter-spacing:-.05em}
+.hero p{margin:18px 0 0;font-size:16px;letter-spacing:.04em;color:#e6ddd1}
+.scroll-mark{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:4;width:62px;height:62px;border-radius:50%;border:1px solid rgba(255,255,255,.24);display:flex;align-items:center;justify-content:center;font-size:34px;color:#f2eee8}
+
+.philosophy{display:grid;grid-template-columns:.95fr 1.05fr;background:var(--cream);color:var(--ink)}
+.philosophy-copy{padding:62px 5.5vw 58px;display:flex;flex-direction:column;justify-content:center}
+.kicker{font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:700;color:#6f645f;margin-bottom:18px}
+.section-title{margin:0 0 20px;font-family:'Cormorant Garamond',serif;font-size:clamp(46px,5.4vw,82px);line-height:.92;font-weight:500;letter-spacing:-.04em}
+.body-copy{max-width:480px;font-size:15px;line-height:1.72;color:#5f5651}
+.text-link{margin-top:24px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:#233b34}
+.philosophy-image{padding:6px;background:var(--cream)}
+.philosophy-image img{filter:brightness(.78) saturate(.78)}
+
+.experience{position:relative;min-height:360px;overflow:hidden;background:#120f0e}
+.experience img{position:absolute;inset:0;filter:brightness(.34) saturate(.76)}
+.experience:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,6,5,.18),rgba(7,6,5,.46))}
+.experience-copy{position:relative;z-index:2;min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px}
+.experience-copy .kicker{color:#ddd2c7}
+.experience h2{margin:0 0 22px;font-family:'Cormorant Garamond',serif;font-size:clamp(52px,5.3vw,84px);line-height:.9;font-weight:500;letter-spacing:-.04em}
+.btn-dark{display:inline-flex;align-items:center;justify-content:center;padding:16px 26px;min-width:220px;background:#451019;border:1px solid rgba(255,255,255,.32);text-transform:uppercase;font-size:10px;letter-spacing:.22em;font-weight:700}
+
+.kitchen{padding:38px 4.5vw 44px;background:var(--cream);color:var(--ink)}
+.kitchen-grid{max-width:1480px;margin:auto;display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+.collage{display:grid;grid-template-columns:1.1fr .9fr;grid-template-rows:1fr 1fr;gap:8px;min-height:500px}
+.collage .lead{grid-row:1 / span 2}
+.collage img{filter:brightness(.78) saturate(.8)}
+.kitchen-copy{padding:20px 2vw}
+.kitchen-copy .body-copy{max-width:520px}
+
+.reserve-band{display:grid;grid-template-columns:.37fr .43fr .20fr;min-height:290px;background:#120c0b}
+.reserve-copy{padding:44px 4.5vw;background:linear-gradient(135deg,#173029,#0d1d19 60%,#0a1613);display:flex;flex-direction:column;justify-content:center}
+.reserve-copy .kicker{color:#d4c7ba}
+.reserve-copy h3{margin:0 0 18px;font-family:'Cormorant Garamond',serif;font-size:54px;line-height:.9;font-weight:500;letter-spacing:-.04em}
+.reserve-copy .btn-dark{background:#d8c09b;color:#13241f;border:none}
+.reserve-image img{filter:brightness(.5) saturate(.72)}
+.quote{display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;background:#150f0e;color:#ddd1c2;font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;line-height:1.24}
+
+footer{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:34px;padding:30px 4.5vw;background:#0d0a09;color:#ddd4ca}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:34px;letter-spacing:.08em}
+.footer-links{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;font-size:9px;text-transform:uppercase;letter-spacing:.24em}
+.footer-note{text-align:right;font-size:8px;line-height:1.7;letter-spacing:.22em;text-transform:uppercase}
+
+@media (max-width:980px){
+  .nav{grid-template-columns:1fr;justify-items:center;gap:18px}
+  .nav .mid{gap:20px}
+  .philosophy,.kitchen-grid,.reserve-band,footer{grid-template-columns:1fr}
+  .philosophy-image{min-height:360px}
+  .collage{min-height:420px}
+  .reserve-image{min-height:280px}
+  .quote{min-height:180px}
+  .footer-note,.footer-brand{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img class="bg" src="https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Steak plated for fine dining">
+  <nav class="nav">
+    <div class="call">Call +1 212 555 0178</div>
+    <div class="mid"><a href="#">Home</a><a href="#">About Us</a><a href="#">Restaurant</a><a href="#">Signature Dishes</a><a href="#">Contact Us</a></div>
+    <a class="book" href="#">Make a Reservation</a>
+  </nav>
+  <div class="hero-copy">
+    <div class="hero-inner">
+      <h1>PALAIS NOIR</h1>
+      <p>A gastronomic journey with a modern point of view</p>
+    </div>
+  </div>
+  <div class="scroll-mark">↓</div>
+</section>
+
+<section class="philosophy">
+  <div class="philosophy-copy">
+    <div class="kicker">Our Philosophy</div>
+    <h2 class="section-title">Our chefs blend classic techniques with contemporary precision.</h2>
+    <p class="body-copy">A darker, more refined restaurant concept shaped around polished service, generous imagery, and a premium booking-led experience. The tone is formal but warm — closer to a destination dining room than a generic restaurant template.</p>
+    <a class="text-link" href="#">Our story &nbsp;→</a>
+  </div>
+  <div class="philosophy-image">
+    <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Luxury dining room interior">
+  </div>
+</section>
+
+<section class="experience">
+  <img src="https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=2200" alt="Fine dining experience">
+  <div class="experience-copy">
+    <div class="kicker">The Experience</div>
+    <h2>Reserve an evening shaped by<br>taste and atmosphere.</h2>
+    <a class="btn-dark" href="#">Book now</a>
+  </div>
+</section>
+
+<section class="kitchen">
+  <div class="kitchen-grid">
+    <div class="collage">
+      <img class="lead" src="https://images.pexels.com/photos/675951/pexels-photo-675951.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Steak main course">
+      <img src="https://images.pexels.com/photos/3298637/pexels-photo-3298637.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Fine dining dish">
+      <img src="https://images.pexels.com/photos/5947021/pexels-photo-5947021.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Cocktail in upscale restaurant">
+    </div>
+    <div class="kitchen-copy">
+      <div class="kicker">A Michelin-Star Dining Experience</div>
+      <h2 class="section-title">The art of flavours.</h2>
+      <p class="body-copy">From aperitifs to composed mains and thoughtful pairings, every detail is designed to feel deliberate. Richer color, larger imagery, and cleaner pacing give this concept a more elevated, luxury-led identity.</p>
+      <a class="text-link" href="#">View the menu &nbsp;→</a>
+    </div>
+  </div>
+</section>
+
+<section class="reserve-band">
+  <div class="reserve-copy">
+    <div class="kicker">Private Dining</div>
+    <h3>Make it a night<br>to remember.</h3>
+    <a class="btn-dark" href="#">Make a reservation</a>
+  </div>
+  <div class="reserve-image">
+    <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1700" alt="Luxury restaurant table setting">
+  </div>
+  <div class="quote">An elegant room,<br>with a memorable table.</div>
+</section>
+
+<footer>
+  <div class="footer-brand">PALAIS NOIR</div>
+  <div class="footer-links"><a href="#">About</a><a href="#">Menu</a><a href="#">Experience</a><a href="#">Private Dining</a><a href="#">Gift Cards</a><a href="#">Contact</a></div>
+  <div class="footer-note">Classic technique<br>modern sensibility</div>
+</footer>
+
+</body>
+</html>

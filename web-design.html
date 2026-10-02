@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Tenth Creation — custom website design and development for small businesses, growing brands, and businesses ready for a stronger online presence." />
+  <title>Tenth Creation — Web Design & Development</title>
+  <style>
+    :root{
+      --ink:#111111;
+      --paper:#f5f4ef;
+      --white:#ffffff;
+      --blue:#4b5cff;
+      --blue-dark:#2c36b8;
+      --lime:#dfff63;
+      --yellow:#dfff63;
+      --line:rgba(17,17,17,.14);
+      --muted:#6d6d67;
+      --radius:28px;
+      --shadow:0 24px 70px rgba(24,24,34,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(1460px,calc(100% - 48px));margin:0 auto}
+
+    /* NAV */
+    .nav-shell{
+      position:sticky;top:0;z-index:50;
+      background:rgba(246,247,249,.86);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid transparent;
+      transition:.25s ease;
+    }
+    .nav-shell.scrolled{border-bottom-color:var(--line)}
+    nav{
+      height:78px;display:flex;align-items:center;justify-content:space-between;
+      gap:30px;
+    }
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.03em}
+    .brand-mark{
+      width:34px;height:34px;border-radius:9px;background:var(--ink);color:white;
+      display:grid;place-items:center;font-size:12px;letter-spacing:-.02em;
+    }
+    .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:650}
+    .nav-links a{opacity:.78;transition:.2s}
+    .nav-links a:hover{opacity:1}
+    .pill{
+      border:1px solid var(--ink);border-radius:999px;padding:11px 18px;font-size:14px;
+      font-weight:750;display:inline-flex;align-items:center;gap:9px;transition:.2s ease;
+      background:transparent;
+    }
+    .pill:hover{background:#dfff63;color:#111111;border-color:#dfff63;transform:translateY(-1px)}
+    .menu-btn{display:none;background:none;border:0;font-size:22px}
+
+    /* HERO */
+    .hero{padding:56px 0 40px}
+    .hero-grid{
+      display:grid;grid-template-columns:minmax(0,1.08fr) minmax(430px,.92fr);
+      gap:50px;align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      font-size:13px;font-weight:750;letter-spacing:.05em;text-transform:uppercase;
+      margin-bottom:24px;
+    }
+    .dot{width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px rgba(75,92,255,.12)}
+    h1{
+      font-size:clamp(58px,7.3vw,122px);
+      line-height:.9;letter-spacing:-.075em;margin:0;max-width:980px;font-weight:790;
+    }
+    .hero-accent{color:var(--blue)}
+    .hero-bottom{
+      margin-top:34px;display:grid;grid-template-columns:minmax(240px,520px) auto;
+      gap:24px;align-items:end;
+    }
+    .hero-copy{
+      font-size:18px;line-height:1.55;letter-spacing:-.025em;color:#35352f;margin:0;
+      max-width:560px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      min-height:54px;padding:0 22px;border-radius:999px;border:1px solid var(--ink);
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      font-weight:780;letter-spacing:-.02em;transition:.22s ease;
+      cursor:pointer;
+    }
+    .btn.primary{background:#dfff63;color:#111111;border-color:#dfff63}
+    .btn.primary:hover{background:#cfee4f;border-color:#cfee4f;transform:translateY(-2px)}
+    .btn.secondary:hover{background:white;transform:translateY(-2px)}
+
+    /* HERO MOCKUP */
+    .hero-visual{position:relative;min-height:640px;display:grid;place-items:center}
+    .orb{
+      position:absolute;border-radius:999px;filter:blur(2px);opacity:.96;
+      animation:float 8s ease-in-out infinite;
+    }
+    .orb.a{width:250px;height:250px;background:linear-gradient(135deg,#65cfff 0%,#4b8dff 100%);left:2%;top:7%}
+    .orb.b{width:300px;height:300px;background:linear-gradient(135deg,#ff9cbd 0%,#ffb4cc 100%);right:-7%;bottom:3%;animation-delay:-2s}
+    .orb.c{width:110px;height:110px;background:#dfff63;right:5%;top:13%;animation-delay:-4s}
+    @keyframes float{50%{transform:translateY(-14px) rotate(4deg)}}
+    .browser{
+      width:min(100%,560px);height:550px;background:#fff;border:1px solid rgba(0,0,0,.1);
+      border-radius:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+      transform:rotate(1.4deg);transition:transform .18s ease;z-index:3;
+    }
+    .browser-bar{height:50px;border-bottom:1px solid #e5e8ec;display:flex;align-items:center;padding:0 16px;gap:7px}
+    .browser-dot{width:8px;height:8px;border-radius:50%;background:#c7c7c1}
+    .browser-url{
+      margin-left:10px;height:24px;border-radius:999px;background:#edf0f3;
+      flex:1;max-width:240px;
+    }
+    .mock{
+      height:calc(100% - 50px);padding:22px;background:#fafbfc;display:flex;flex-direction:column;gap:16px;
+    }
+    .mock-nav{display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:800;letter-spacing:.04em}
+    .mock-nav-links{display:flex;gap:14px;color:#777}
+    .mock-hero{
+      flex:1;min-height:0;background:linear-gradient(135deg,#4b5cff 0%,#5364ff 58%,#655df3 100%);border-radius:18px;padding:28px;color:white;
+      display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;
+    }
+    .mock-hero:after{
+      content:"";position:absolute;width:230px;height:230px;border-radius:50%;
+      background:#b9e4ff;right:-70px;top:55px;
+    }
+    .mock-hero:before{
+      content:"";position:absolute;width:170px;height:170px;border-radius:22px;
+      background:#b8adff;right:70px;bottom:-86px;transform:rotate(24deg);
+    }
+    .mock-mini{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;position:relative;z-index:2}
+    .mock-title{font-size:42px;line-height:.91;letter-spacing:-.07em;font-weight:820;max-width:320px;position:relative;z-index:2}
+    .mock-button{
+      width:max-content;padding:10px 15px;border-radius:999px;background:white;color:#111;
+      font-size:10px;font-weight:800;position:relative;z-index:2;
+    }
+    .mock-strip{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;height:115px}
+    .mock-card{border-radius:16px;background:#eef0f3;padding:18px;overflow:hidden;position:relative}
+    .mock-card:nth-child(2){background:#172332;color:white}
+    .mock-card strong{font-size:18px;letter-spacing:-.04em}
+    .mock-lines{position:absolute;left:18px;bottom:16px;right:18px;display:grid;gap:7px}
+    .mock-line{height:6px;border-radius:999px;background:rgba(0,0,0,.15)}
+    .mock-card:nth-child(2) .mock-line{background:rgba(255,255,255,.18)}
+    .floating-label{
+      position:absolute;z-index:7;background:rgba(17,24,32,.92);color:white;padding:11px 15px;border-radius:999px;
+      font-size:12px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.16);
+    }
+    .label-a{top:12%;left:-4%;transform:rotate(-7deg)}
+    .label-b{bottom:16%;right:-3%;background:white;color:#111111;transform:rotate(5deg);backdrop-filter:blur(12px)}
+    .label-c{bottom:4%;left:6%;background:#111111;color:white;border:1px solid rgba(17,17,17,.10);transform:rotate(-3deg);backdrop-filter:blur(12px)}
+
+    /* TRUST STRIP */
+    .trust{
+      margin-top:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+      overflow:hidden;
+    }
+    .marquee{display:flex;white-space:nowrap;overflow:hidden;padding:17px 0}
+    .marquee-track{display:flex;animation:marquee 24s linear infinite}
+    .marquee span{font-size:14px;font-weight:780;letter-spacing:.04em;margin-right:45px}
+    .marquee b{color:var(--yellow)}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+
+    /* GENERIC */
+    section{padding:110px 0}
+    .section-head{
+      display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:54px;align-items:end
+    }
+    .kicker{font-size:13px;text-transform:uppercase;letter-spacing:.11em;font-weight:800;color:var(--blue)}
+    h2{
+      font-size:clamp(44px,5.5vw,80px);line-height:.98;letter-spacing:-.06em;
+      margin:10px 0 0;font-weight:780;max-width:880px;
+    }
+    .section-copy{margin:0 0 5px;max-width:530px;color:#4f4f49;line-height:1.65;font-size:17px}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    /* SERVICES */
+    .services{background:#111111;color:white;border-radius:42px;margin:0 18px;padding-left:0;padding-right:0}
+    .services .wrap{width:min(1424px,calc(100% - 48px))}
+    .services .section-copy{color:#bcbcb4}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.18)}
+    .service{
+      min-height:430px;padding:30px;border-right:1px solid rgba(255,255,255,.18);
+      display:flex;flex-direction:column;justify-content:space-between;transition:.25s ease;
+    }
+    .service:last-child{border-right:0}
+    .service:hover{background:#1b1b1b}
+    .service-num{font-size:12px;color:#999}
+    .service h3{font-size:34px;letter-spacing:-.05em;margin:0 0 14px}
+    .service p{color:#b8b8b1;line-height:1.55;margin:0;max-width:340px}
+    .service ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+    .service li{font-size:13px;color:#ddd}
+    .service li:before{content:"↳";color:var(--yellow);margin-right:8px}
+    .service-time{
+      margin-top:30px;display:inline-flex;width:max-content;border:1px solid rgba(255,255,255,.22);
+      border-radius:999px;padding:9px 12px;font-size:12px;color:#ddd;
+    }
+
+    /* WORK / LIVE HOMEPAGE CONCEPTS */
+    .work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    .project{
+      border-radius:28px;overflow:hidden;background:white;border:1px solid var(--line);
+      min-height:650px;display:flex;flex-direction:column;position:relative;
+    }
+    .project.featured-wide{grid-column:1/-1;min-height:700px}
+    .project-visual{flex:1;min-height:430px;padding:34px;position:relative;overflow:hidden}
+    .concept-beauty{background:#f0ecea}
+    .concept-golf{background:#e8eff4}
+    .concept-architecture{background:#eceef1}
+    .concept-cafe{background:#eef2f7}
+    .concept-fashion{background:#e8ebf2}
+    .project-browser{
+      width:88%;height:82%;background:white;border-radius:16px;position:absolute;
+      left:6%;top:9%;box-shadow:0 20px 55px rgba(0,0,0,.13);overflow:hidden;
+      transform:rotate(-1.25deg);transition:.35s ease;
+    }
+    .project:nth-child(even) .project-browser{transform:rotate(1.1deg)}
+    .project:hover .project-browser{transform:rotate(0) scale(1.015)}
+    .pb-top{height:34px;background:#f5f7f9;border-bottom:1px solid #e5e8ec;display:flex;align-items:center;padding:0 11px;gap:5px;position:relative;z-index:4}
+    .pb-top i{width:6px;height:6px;border-radius:50%;background:#c7c7c7}
+    .pb-url{height:13px;width:34%;margin-left:8px;border-radius:999px;background:#e9edf2}
+    .live-preview{position:absolute;left:0;right:0;top:34px;bottom:0;overflow:hidden;background:#fff}
+    .live-preview iframe{
+      width:1600px;height:1000px;border:0;display:block;pointer-events:none;
+      transform:scale(.36);transform-origin:top left;background:#fff;
+    }
+    .featured-wide .live-preview iframe{transform:scale(.70)}
+    .preview-chip{
+      position:absolute;z-index:6;right:16px;bottom:16px;background:rgba(17,24,32,.92);color:white;
+      border-radius:999px;padding:9px 12px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+      backdrop-filter:blur(8px);
+    }
+    .project-meta{padding:24px 26px 28px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}
+    .project-tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+    .project h3{font-size:29px;letter-spacing:-.04em;margin:6px 0 0}
+    .round-link{
+      width:48px;height:48px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;
+      font-size:20px;transition:.2s
+    }
+    .project:hover .round-link{background:var(--ink);color:white;transform:rotate(-35deg)}
+
+    /* VALUE */
+    .value-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .value-card{
+      background:white;border:1px solid var(--line);border-radius:28px;padding:34px;min-height:320px;
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .value-card.blue{background:linear-gradient(135deg,#4b5cff 0%,#6673ff 100%);color:white;border-color:#4b5cff}
+    .value-card.lime{background:#f2ffd0;border-color:#dfff63}
+    .value-card h3{font-size:38px;line-height:1;letter-spacing:-.055em;margin:0;max-width:560px}
+    .value-card p{max-width:520px;line-height:1.6;color:#555}
+    .value-card.blue p{color:#e2e4ff}
+    .value-index{font-size:12px;font-weight:800;letter-spacing:.1em}
+
+    /* PROCESS */
+    .process-list{border-top:1px solid var(--line)}
+    .process-item{
+      display:grid;grid-template-columns:90px minmax(240px,1fr) 1.45fr;
+      gap:30px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start;
+    }
+    .process-num{font-size:13px;color:var(--blue);font-weight:850;transition:.2s ease}
+    .process-item:hover .process-num{color:#4b5cff}
+    .process-title{font-size:29px;letter-spacing:-.04em;font-weight:780}
+    .process-desc{color:#555;line-height:1.6;max-width:620px}
+
+    /* CTA */
+    .cta{
+      background:linear-gradient(135deg,#4b5cff 0%,#4f60ff 68%,#5e63f2 120%);color:white;border-radius:42px;margin:0 18px 18px;
+      min-height:620px;display:grid;place-items:center;position:relative;overflow:hidden;
+    }
+    .cta:before{
+      content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:#dfff63;filter:blur(2px);
+      left:-90px;bottom:-170px;
+    }
+    .cta:after{
+      content:"";position:absolute;width:300px;height:300px;border-radius:60px;background:#ff9cbd;
+      right:-60px;top:-120px;transform:rotate(30deg);
+    }
+    .cta-inner{position:relative;z-index:2;text-align:center;width:min(970px,calc(100% - 40px))}
+    .cta small{text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+    .cta h2{margin:20px auto 30px;font-size:clamp(60px,7.8vw,120px);max-width:1100px}
+    .cta .btn{background:white;color:#111;border-color:white}
+    .cta .btn:hover{background:#dfff63;border-color:#dfff63}
+    footer{
+      padding:34px 0 45px;display:flex;justify-content:space-between;gap:20px;
+      font-size:13px;color:#555;
+    }
+
+    @media (max-width:1050px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-visual{min-height:560px}
+      .hero-bottom{grid-template-columns:1fr}
+      .section-head{grid-template-columns:1fr}
+      .service-grid{grid-template-columns:1fr}
+      .service{min-height:330px;border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
+      .service:last-child{border-bottom:0}
+      .work-grid{grid-template-columns:1fr}
+      .project.featured-wide{grid-column:auto}
+      .featured-wide .live-preview iframe{transform:scale(.36)}
+    }
+    @media (max-width:760px){
+      .wrap{width:min(100% - 28px,1460px)}
+      nav{height:68px}
+      .nav-links{
+        display:none;position:absolute;left:14px;right:14px;top:68px;background:var(--paper);
+        border:1px solid var(--line);border-radius:18px;padding:20px;flex-direction:column;align-items:flex-start;
+      }
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      nav>.pill{display:none}
+      .hero{padding-top:38px}
+      h1{font-size:clamp(54px,17vw,84px)}
+      .hero-visual{min-height:460px}
+      .browser{height:430px}
+      .mock-title{font-size:31px}
+      .floating-label{font-size:10px}
+      section{padding:82px 0}
+      .services,.cta{margin-left:8px;margin-right:8px;border-radius:28px}
+      .services .wrap{width:min(100% - 28px,1424px)}
+      .work-grid,.value-grid{grid-template-columns:1fr}
+      .project,.project.featured-wide{min-height:520px}
+      .live-preview iframe,.featured-wide .live-preview iframe{transform:scale(.27)}
+      .project-visual{min-height:340px}
+      .process-item{grid-template-columns:48px 1fr}
+      .process-desc{grid-column:2}
+      .value-card{min-height:270px}
+      footer{flex-direction:column}
+    }
+  
+    .studio-return{border-bottom:1px solid var(--line);background:var(--paper)}
+    .studio-return a{display:inline-flex;align-items:center;min-height:44px;padding:10px 0;font-size:12px;line-height:1.5;letter-spacing:.025em}
+    .studio-return a:hover{text-decoration:underline;text-underline-offset:4px}
+    .studio-return a:focus-visible,footer a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+  </style>
+</head>
+<body>
+  <div class="studio-return"><div class="wrap"><a href="index.html#web-design">← Back to Tenth Creation Studio</a></div></div>
+  <div class="nav-shell" id="navShell">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#top" aria-label="Tenth Creation home">
+          <span class="brand-mark">10C</span>
+          <span>Tenth Creation</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="#work">Works</a>
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="mailto:info@tenthcreation.com">Contact</a>
+        </div>
+        <a class="pill" href="mailto:info@tenthcreation.com">Start a Project <span>↗</span></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      </nav>
+    </div>
+  </div>
+
+  <main id="top">
+    <header class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow"><span class="dot"></span> Web Design & Development Studio</div>
+            <h1>Websites built<br>to make your<br><span class="hero-accent">business feel current.</span></h1>
+            <div class="hero-bottom">
+              <p class="hero-copy">
+                We redesign outdated websites and build polished, conversion-focused digital experiences for small businesses, service brands, creative studios, and online stores.
+              </p>
+              <div class="hero-actions">
+                <a class="btn primary" href="mailto:info@tenthcreation.com">Start Your Project <span>↗</span></a>
+                <a class="btn secondary" href="#work">View Our Work</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" id="heroVisual">
+            <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+            <div class="floating-label label-a">Responsive Design</div>
+            <div class="floating-label label-b">Built for your business</div>
+            <div class="floating-label label-c">SEO + Analytics</div>
+            <div class="browser" id="browserCard">
+              <div class="browser-bar">
+                <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                <div class="browser-url"></div>
+              </div>
+              <div class="mock">
+                <div class="mock-nav">
+                  <span>YOUR BRAND</span>
+                  <div class="mock-nav-links"><span>About</span><span>Work</span><span>Contact</span></div>
+                </div>
+                <div class="mock-hero">
+                  <span class="mock-mini">Made to stand out</span>
+                  <div class="mock-title">A website that looks like your business.</div>
+                  <span class="mock-button">Explore →</span>
+                </div>
+                <div class="mock-strip">
+                  <div class="mock-card"><strong>Design with purpose.</strong><div class="mock-lines"><span class="mock-line"></span><span class="mock-line" style="width:62%"></span></div></div>
+                  <div class="mock-card"><strong>Launch<br>ready.</strong><div class="mock-lines"><span class="mock-line"></span><span class="mock-line" style="width:74%"></span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trust">
+        <div class="marquee">
+          <div class="marquee-track">
+            <span>SHOPIFY <b>✦</b></span><span>WORDPRESS <b>✦</b></span><span>WIX <b>✦</b></span><span>WEBFLOW <b>✦</b></span><span>MOBILE OPTIMIZED <b>✦</b></span><span>CUSTOM DESIGN <b>✦</b></span>
+            <span>SHOPIFY <b>✦</b></span><span>WORDPRESS <b>✦</b></span><span>WIX <b>✦</b></span><span>WEBFLOW <b>✦</b></span><span>MOBILE OPTIMIZED <b>✦</b></span><span>CUSTOM DESIGN <b>✦</b></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <section style="padding-top:72px;padding-bottom:100px;">
+      <div class="wrap">
+        <div class="section-head reveal" style="margin-bottom:36px;">
+          <div>
+            <div class="kicker">For Growing Businesses</div>
+            <h2>Your business may have changed.<br>Your website should too.</h2>
+          </div>
+          <p class="section-copy">
+            If your current site feels dated, hard to navigate, difficult to update, or no longer reflects the quality of your business, we can help rebuild it into something clearer, sharper, and more credible.
+          </p>
+        </div>
+        <div class="value-grid">
+          <article class="value-card reveal">
+            <span class="value-index">OUTDATED DESIGN</span>
+            <div>
+              <h3>A more current visual presence.</h3>
+              <p>We modernize typography, spacing, hierarchy, imagery, and page structure without losing what already makes your brand recognizable.</p>
+            </div>
+          </article>
+          <article class="value-card blue reveal">
+            <span class="value-index">BETTER EXPERIENCE</span>
+            <div>
+              <h3>Clearer for your customers.</h3>
+              <p>We make it easier for visitors to understand what you do, trust your business, and take the next step — whether that is contacting, booking, visiting, or buying.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker" style="color:var(--yellow)">Services</div>
+            <h2>The right website<br>for where your business is now.</h2>
+          </div>
+          <div>
+          <p class="section-copy">
+            Every project starts with your business goals. We create websites that look sharp, communicate clearly, and support real actions — from inquiries and bookings to sales.
+          </p>
+          <p class="section-copy" style="margin-top:14px;font-size:14px;">
+            Pricing is customized after consultation based on scope, platform, features, and timeline.
+          </p>
+          </div>
+        </div>
+
+        <div class="service-grid reveal">
+          <article class="service">
+            <span class="service-num">01 / BASIC</span>
+            <div>
+              <h3>Basic Website</h3>
+              <p>A focused website for small businesses that need a clean, credible, and professional online presence.</p>
+              <ul>
+                <li>Up to 5 core pages</li>
+                <li>Responsive across desktop, tablet, and mobile</li>
+                <li>Contact form & map integration</li>
+                <li>Basic SEO & SSL setup</li>
+              </ul>
+              <span class="service-time">Typically 2–3 weeks</span>
+            </div>
+          </article>
+
+          <article class="service">
+            <span class="service-num">02 / BUSINESS</span>
+            <div>
+              <h3>Business Website</h3>
+              <p>A custom site for established businesses that need stronger storytelling, services, portfolio content, and scalable functionality.</p>
+              <ul>
+                <li>Custom homepage & subpages</li>
+                <li>Expanded portfolio & service pages</li>
+                <li>Advanced motion & design details</li>
+                <li>Google Analytics integration</li>
+              </ul>
+              <span class="service-time">Custom scope · Typically 3–5 weeks</span>
+            </div>
+          </article>
+
+          <article class="service">
+            <span class="service-num">03 / COMMERCE</span>
+            <div>
+              <h3>E‑Commerce</h3>
+              <p>An e-commerce experience built around your brand, products, customers, and checkout flow.</p>
+              <ul>
+                <li>Product & collection setup</li>
+                <li>Payment, shipping & tax setup</li>
+                <li>Shopify / WordPress build</li>
+                <li>Social & marketing integrations</li>
+              </ul>
+              <span class="service-time">Typically 5–8 weeks</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Selected Restaurant Concepts</div>
+            <h2>Six restaurant website concepts,<br>refined for different dining moods.</h2>
+          </div>
+          <p class="section-copy">
+            Explore five homepage directions across different industries and visual styles. Each concept is designed to show how the same level of strategy can feel completely different from brand to brand.
+          </p>
+        </div>
+
+        
+<div class="work-grid" style="grid-template-columns:1fr 1fr;gap:24px;">
+  <a class="project reveal" href="01-west-malva.html" target="_blank" rel="noopener">
+    <div class="project-visual" style="background:#c7a384;">
+      <iframe src="01-west-malva.html" title="Velour House homepage concept" loading="lazy" style="width:100%;height:100%;border:0;border-radius:16px;pointer-events:none;background:white;"></iframe>
+    </div>
+    <div class="project-meta"><div><span class="project-tag">Luxury Western · Fine Dining / Aperitivo</span><h3>Velour House</h3></div><span class="round-link">↗</span></div>
+  </a>
+
+  <a class="project reveal" href="02-west-palais.html" target="_blank" rel="noopener">
+    <div class="project-visual" style="background:#1c3027;">
+      <iframe src="02-west-palais.html" title="Palais Noir homepage concept" loading="lazy" style="width:100%;height:100%;border:0;border-radius:16px;pointer-events:none;background:white;"></iframe>
+    </div>
+    <div class="project-meta"><div><span class="project-tag">Luxury Western · Gastronomy / Editorial</span><h3>Palais Noir</h3></div><span class="round-link">↗</span></div>
+  </a>
+
+  <a class="project reveal" href="03-asian-akaneya.html" target="_blank" rel="noopener">
+    <div class="project-visual" style="background:#26140c;">
+      <iframe src="03-asian-akaneya.html" title="Akariya Sumibi homepage concept" loading="lazy" style="width:100%;height:100%;border:0;border-radius:16px;pointer-events:none;background:white;"></iframe>
+    </div>
+    <div class="project-meta"><div><span class="project-tag">Luxury Japanese · Sumibi / Wagyu</span><h3>Akariya Sumibi</h3></div><span class="round-link">↗</span></div>
+  </a>
+
+  <a class="project reveal" href="04-asian-sibayeon.html" target="_blank" rel="noopener">
+    <div class="project-visual" style="background:#bdb7ad;">
+      <iframe src="04-asian-sibayeon.html" title="Siba Yeon homepage concept" loading="lazy" style="width:100%;height:100%;border:0;border-radius:16px;pointer-events:none;background:white;"></iframe>
+    </div>
+    <div class="project-meta"><div><span class="project-tag">Premium Asian · Heritage / Editorial</span><h3>Siba Yeon</h3></div><span class="round-link">↗</span></div>
+  </a>
+
+  <a class="project reveal" href="05-casual-maplestreet.html" target="_blank" rel="noopener">
+    <div class="project-visual" style="background:#f0dca2;">
+      <iframe src="05-casual-maplestreet.html" title="Maple Street Kitchen homepage concept" loading="lazy" style="width:100%;height:100%;border:0;border-radius:16px;pointer-events:none;background:white;"></iframe>
+    </div>
+    <div class="project-meta"><div><span class="project-tag">Casual Dining · Family / Neighborhood</span><h3>Sun Bowl Kitchen</h3></div><span class="round-link">↗</span></div>
+  </a>
+
+  <a class="project reveal" href="06-casual-sunbowl.html" target="_blank" rel="noopener">
+    <div class="project-visual" style="background:#e6ecef;">
+      <iframe src="06-casual-sunbowl.html" title="Sun Bowl Kitchen homepage concept" loading="lazy" style="width:100%;height:100%;border:0;border-radius:16px;pointer-events:none;background:white;"></iframe>
+    </div>
+    <div class="project-meta"><div><span class="project-tag">Everyday Fast Casual · Order-focused</span><h3>Maple Street Kitchen</h3></div><span class="round-link">↗</span></div>
+  </a>
+</div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Why Tenth Creation</div>
+            <h2>Designed to look better.<br>Built to work better.</h2>
+          </div>
+          <p class="section-copy">We treat strategy, design, development, and launch as one connected process — so the final site feels consistent, intentional, and easier to manage.</p>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card blue reveal">
+            <span class="value-index">01 — CUSTOM FIRST</span>
+            <div>
+              <h3>We start with your brand, not a template.</h3>
+              <p>Instead of forcing your business into a prebuilt layout, we design the structure around your industry, audience, and customer journey.</p>
+            </div>
+          </article>
+          <article class="value-card lime reveal">
+            <span class="value-index">02 — RESPONSIVE</span>
+            <div>
+              <h3>A strong experience on every screen.</h3>
+              <p>Every website is designed to feel polished and easy to use across desktop, tablet, and mobile.</p>
+            </div>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-index">03 — BUSINESS READY</span>
+            <div>
+              <h3>Built to support real business goals.</h3>
+              <p>From contact forms and analytics to SEO, bookings, payments, and shopping functionality, we connect the tools your business actually needs.</p>
+            </div>
+          </article>
+          <article class="value-card reveal">
+            <span class="value-index">04 — AFTER LAUNCH</span>
+            <div>
+              <h3>Launch is not the end of the process.</h3>
+              <p>We handle final testing and domain launch, and can structure the site for ongoing updates and maintenance when needed.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Process</div>
+            <h2>A clear process<br>from idea to launch.</h2>
+          </div>
+          <p class="section-copy">From the first conversation to launch day, we keep the process organized, transparent, and easy to follow.</p>
+        </div>
+
+        <div class="process-list reveal">
+          <div class="process-item">
+            <div class="process-num">01</div>
+            <div class="process-title">Discovery & Strategy</div>
+            <div class="process-desc">We learn about your business, audience, goals, and current website, then define the platform, sitemap, content priorities, and functionality.</div>
+          </div>
+          <div class="process-item">
+            <div class="process-num">02</div>
+            <div class="process-title">Content & Direction</div>
+            <div class="process-desc">We organize your brand assets, imagery, and copy, then develop the visual direction and key page concepts before the full build.</div>
+          </div>
+          <div class="process-item">
+            <div class="process-num">03</div>
+            <div class="process-title">Design & Development</div>
+            <div class="process-desc">We design and build the responsive website, connect the required functionality, add interaction, and refine the experience through feedback.</div>
+          </div>
+          <div class="process-item">
+            <div class="process-num">04</div>
+            <div class="process-title">Launch & Support</div>
+            <div class="process-desc">After final testing, we connect your domain and launch the site. Ongoing maintenance and future updates can be discussed separately.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner reveal">
+        <small>Start a project with Tenth Creation</small>
+        <h2>Ready for a website<br>that feels up to date?</h2>
+        <a class="btn" href="mailto:info@tenthcreation.com">info@tenthcreation.com <span>↗</span></a>
+        <p style="margin:18px auto 0;max-width:620px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.82);">
+          Project pricing is provided after consultation and varies based on scope, functionality, platform, and timeline.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <div class="wrap">
+    <footer>
+      <span>© 2026 Tenth Creation. All rights reserved.</span>
+      <a href="index.html#web-design">Back to Tenth Creation Studio ↗</a>
+    </footer>
+  </div>
+
+  <script>
+    const navShell = document.getElementById('navShell');
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const browser = document.getElementById('browserCard');
+    const visual = document.getElementById('heroVisual');
+
+    window.addEventListener('scroll', () => {
+      navShell.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    menuBtn?.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          reveal.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
+
+    if (visual && browser && window.matchMedia('(pointer:fine)').matches) {
+      visual.addEventListener('mousemove', (e) => {
+        const r = visual.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        browser.style.transform = `rotate(${1.4 + x * 2.2}deg) translate(${x * 8}px, ${y * 8}px)`;
+      });
+      visual.addEventListener('mouseleave', () => {
+        browser.style.transform = 'rotate(1.4deg)';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+
+<title>Daylight Coffee — Concept 04</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+*{box-sizing:border-box}html,body{margin:0;background:#f3ead8;color:#152d55;font-family:'DM Sans',sans-serif}a{color:inherit;text-decoration:none}
+.page{min-height:100vh;padding:16px;overflow:hidden}
+nav{height:64px;border:2px solid #152d55;border-radius:999px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;text-transform:uppercase;font-size:11px;letter-spacing:.12em;background:#f3ead8;position:relative;z-index:4}
+.logo{font:700 18px 'Space Grotesk';letter-spacing:-.04em}.links{display:flex;gap:26px}.order{background:#152d55;color:#f3ead8;padding:11px 16px;border-radius:999px}
+.hero{min-height:760px;display:grid;grid-template-columns:1.05fr .95fr;gap:16px;padding-top:16px}
+.left{border:2px solid #152d55;border-radius:36px;background:#f3b23e;padding:34px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.badge{width:130px;height:130px;border-radius:50%;border:2px solid #152d55;display:grid;place-items:center;text-align:center;text-transform:uppercase;font-size:10px;font-weight:700;line-height:1.4;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{font:700 clamp(72px,8.5vw,138px)/.78 'Space Grotesk';letter-spacing:-.075em;margin:0;text-transform:uppercase}
+h1 span{display:block;color:#f34336}
+.copy{max-width:500px;font-size:16px;line-height:1.5}
+.squiggle{position:absolute;right:-90px;top:80px;width:330px;height:330px;border:34px solid #f34336;border-radius:50%;border-left-color:transparent;border-bottom-color:transparent;transform:rotate(20deg)}
+.right{display:grid;grid-template-rows:1fr 180px;gap:16px}
+.photo{border-radius:36px;overflow:hidden;border:2px solid #152d55;position:relative;background:#333}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8) contrast(.94)}
+.photo-label{position:absolute;left:22px;bottom:22px;background:#f3ead8;border:2px solid #152d55;border-radius:999px;padding:12px 15px;font-size:11px;text-transform:uppercase;font-weight:700}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tile{border:2px solid #152d55;border-radius:30px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;text-transform:uppercase;font-size:11px;font-weight:700}
+.tile.blue{background:#152d55;color:#f3ead8}.tile.red{background:#f34336;color:#f3ead8}
+.tile strong{font:600 30px 'Space Grotesk';letter-spacing:-.05em;text-transform:none}
+@media(max-width:850px){.links{display:none}.hero{grid-template-columns:1fr}.left{min-height:650px}.right{min-height:740px}h1{font-size:19vw}}
+</style></head><body>
+<div class="page">
+<nav><a class="logo">DAYLIGHT COFFEE</a><div class="links"><a>Menu</a><a>Our Coffee</a><a>Locations</a><a>Journal</a></div><a class="order">Order ahead ↗</a></nav>
+<main class="hero">
+<section class="left"><div class="squiggle"></div><div class="badge">Roasted with care · served daily ·</div><div><h1>Good<br><span>morning</span><br>starts here.</h1><p class="copy">Coffee for people who like their mornings bright, their espresso serious, and their neighborhood café a little more fun.</p></div></section>
+<section class="right"><div class="photo"><img src="https://images.pexels.com/photos/1833769/pexels-photo-1833769.jpeg?auto=compress&cs=tinysrgb&w=1800" alt=""><div class="photo-label">Open daily · 7am—6pm</div></div><div class="tiles"><div class="tile blue"><span>Seasonal drink</span><strong>Orange<br>Cold Brew</strong></div><div class="tile red"><span>Find us</span><strong>Brooklyn<br>→ 3 spots</strong></div></div></section>
+</main>
+</div></body></html>
